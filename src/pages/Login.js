@@ -33,7 +33,7 @@ const Login = () => {
             </label>
             <input
               type="text"
-              name="name"
+              name="username"
               id="name"
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
