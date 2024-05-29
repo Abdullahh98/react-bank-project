@@ -22,7 +22,13 @@ const Navbar = () => {
           Login
         </NavLink>
         <div className=" w=[70px] h-[35px] flex justify-center items-center py-[3px] ">
-          Register
+          {" "}
+          <NavLink
+            className="block w-full text-sm text-black border-gray-300 hover:bg-red-800"
+            to="/register"
+          >
+            Register
+          </NavLink>
         </div>
       </div>
     </div>

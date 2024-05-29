@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { register } from "../api/auth";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
 
 const Register = () => {
@@ -32,14 +32,16 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-end mx-10 my-10">
+    <div className="flex items-center justify-center mx-10 my-10">
       <div>
         <h2 className="text-3xl text-black font-semibold mb-6">
           Register your account
         </h2>
-        <h3>
+        <h3 className=" my-4">
           If you do have an account,{" "}
-          <button className="text-">login here</button>
+          <NavLink to="/login" className=" text-sky-400">
+            login here
+          </NavLink>
         </h3>
         <form onSubmit={handleFormSubmit}>
           <div className="mb-4">
@@ -87,8 +89,8 @@ const Register = () => {
               id="image"
               name="image"
               onChange={handleChange}
-              className="block w-full text-sm text-slate-500
-              file:mr-4 file:py-2 file:px-4 px-4 py-2
+              className="block w-full text-sm text-slate-500 border-gray-300
+              file:mr-4 file:py-2 file:px-4 
               file:rounded-md file:border-0
               file:text-sm file:font-semibold
               file:bg-green-500 file:text-black
