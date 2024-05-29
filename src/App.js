@@ -1,20 +1,17 @@
+import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
-import Register from "./pages/Register";
-import { UserContext } from "./context/UserContext";
-import { useState } from "react";
+import Login from "./pages/Login";
+
 function App() {
-  const [user, setUser] = useState(false);
   return (
-    <UserContext.Provider value={[user, setUser]}>
-      <div>
-        <Navbar></Navbar>
-        <Routes>
-          <Route path="/register" Component={Register} />
-        </Routes>
-      </div>
-    </UserContext.Provider>
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/login" Component={Login}></Route>
+      </Routes>
+    </div>
   );
 }
 
