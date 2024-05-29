@@ -82,6 +82,7 @@ const Register = () => {
             >
               Upload a Profile Picture
             </label>
+
             <input
               type="file"
               id="image"
@@ -89,10 +90,10 @@ const Register = () => {
               onChange={handleChange}
               className="block w-full text-sm text-slate-500
               file:mr-4 file:py-2 file:px-4 px-4 py-2
-              file:rounded-md file:border-0
+               file:border-0
               file:text-sm file:font-semibold
               file:bg-green-500 file:text-black
-              hover:file:bg-green-600 border rounded-md
+              hover:file:bg-green-600 border rounded-md 
         "
               required
             />
