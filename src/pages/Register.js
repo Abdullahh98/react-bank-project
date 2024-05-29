@@ -84,6 +84,7 @@ const Register = () => {
             >
               Upload a Profile Picture
             </label>
+
             <input
               type="file"
               id="image"
@@ -94,7 +95,7 @@ const Register = () => {
               file:rounded-md file:border-0
               file:text-sm file:font-semibold
               file:bg-green-500 file:text-black
-              hover:file:bg-green-600 border rounded-md
+              hover:file:bg-green-600 border rounded-md 
         "
               required
             />
