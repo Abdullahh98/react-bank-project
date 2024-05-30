@@ -29,4 +29,10 @@ const register = async (userInfo) => {
   }
 };
 
-export { register, login };
+const allTransactions = async () => {
+  const res = await instance.get("/mini-project/api/transactions/my");
+
+  return res.data;
+};
+
+export { register, login, allTransactions };
