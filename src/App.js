@@ -5,6 +5,10 @@ import { useState } from "react";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import UserContext from "./context/UserContext";
+import Profile from "./pages/ProfilePage";
+import DepositForm from "./pages/Deposit";
+import Transaction from "./pages/Transaction";
+
 function App() {
   const [user, setUser] = useState(false);
   return (
@@ -14,6 +18,9 @@ function App() {
         <Routes>
           <Route path="/register" Component={Register} />
           <Route path="/login" Component={Login} />
+          <Route path="/profile" Component={Profile}></Route>
+          <Route path="/deposit" Component={DepositForm}></Route>
+          <Route path="/transaction" Component={Transaction}></Route>
         </Routes>
       </div>
     </UserContext.Provider>

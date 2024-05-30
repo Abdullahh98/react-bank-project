@@ -29,4 +29,22 @@ const register = async (userInfo) => {
   }
 };
 
-export { register, login };
+const getUserProfile = async () => {
+  const { data } = await instance.get("/mini-project/api/auth/me/");
+  return data;
+};
+
+const transaction = async () => {
+  const { data } = await instance.get("/mini-project/api/transactions/my");
+  return data;
+};
+
+const put_deposit = async (amount) => {
+  const { data } = await instance.put(
+    "/mini-project/api/transactions/deposit",
+    { amount: amount }
+  );
+
+  return data;
+};
+export { register, login, getUserProfile, put_deposit, transaction };
