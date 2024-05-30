@@ -29,10 +29,30 @@ const register = async (userInfo) => {
   }
 };
 
+
 const allTransactions = async () => {
   const res = await instance.get("/mini-project/api/transactions/my");
 
   return res.data;
 };
 
-export { register, login, allTransactions };
+const getUserProfile = async () => {
+  const { data } = await instance.get("/mini-project/api/auth/me/");
+  return data;
+};
+
+const transaction = async () => {
+  const { data } = await instance.get("/mini-project/api/transactions/my");
+  return data;
+};
+
+const put_deposit = async (amount) => {
+  const { data } = await instance.put(
+    "/mini-project/api/transactions/deposit",
+    { amount: amount }
+  );
+
+  return data;
+};
+export { register, login, getUserProfile, put_deposit, transaction,allTransactions };
+
