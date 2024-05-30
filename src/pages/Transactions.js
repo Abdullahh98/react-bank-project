@@ -3,7 +3,7 @@ import { allTransactions } from "../api/auth";
 import { data } from "autoprefixer";
 import TransactionItem from "../components/TransactionItem";
 
-const Transaction = () => {
+const Transactions = () => {
   const { data: transactionsData } = useQuery({
     queryKey: ["transactions"],
     queryFn: allTransactions,
@@ -34,4 +34,4 @@ const Transaction = () => {
     </div>
   );
 };
-export default Transaction;
+export default Transactions;
