@@ -21,12 +21,12 @@ const Transactions = () => {
   });
 
   return (
-    <div className=" bg-red-600 h-[600px] flex flex-col">
-      <div className="bg-blue-500 h-[150px]"></div>
-      <div className="bg-green-500 h-[150px]"></div>
-      <div className="bg-purple-500 h-[150px]"></div>
-      <div className="bg-pink-500 h-[100vh]">
-        <div className="  bg-white text-red-500 h-[90%] w-[90%]rounded-md">
+    <div className="  h-[655px] flex flex-col">
+      <div className="bg-blue-500 h-[120px]"></div>
+      <div className="bg-green-500 h-[130px]"></div>
+      <div className="bg-purple-500 h-[130px]"></div>
+      <div className=" h-full flex justify-center items-center">
+        <div className=" lg:h-[95%] lg:w-full rounded-md flex flex-col justify-center items-center overflow-scroll gap-3 p-3 ">
           {/* here is where we display the transaction cards */}
           {transactionList}
         </div>

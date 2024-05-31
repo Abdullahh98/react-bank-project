@@ -22,7 +22,7 @@ const Login = () => {
 
   return (
     <div className="  min-h-screen flex items-center justify-center absolute inset-0 z-[-1]">
-      <div className="max-w-md w-full px-6 py-8 ">
+      <div className=" max-w-md w-full px-6 py-8 ">
         <h2 className="text-3xl text-black font-semibold mb-6">
           Log in to your account
         </h2>
