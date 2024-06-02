@@ -15,9 +15,12 @@ const Navbar = () => {
         >
           Transaction
         </NavLink>
-        <div className=" w=[70px] h-[35px] flex justify-center items-center py-[3px] ">
+        <NavLink
+          to="/users"
+          className=" w=[70px] h-[35px] flex justify-center items-center py-[3px] "
+        >
           Users
-        </div>
+        </NavLink>
 
         <NavLink
           to="/login"

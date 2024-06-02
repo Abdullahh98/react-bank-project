@@ -29,21 +29,14 @@ const register = async (userInfo) => {
   }
 };
 
-
-const allTransactions = async () => {
-  const res = await instance.get("/mini-project/api/transactions/my");
-
+const getUserProfile = async () => {
+  const res = await instance.get("/mini-project/api/auth/me/");
   return res.data;
 };
 
-const getUserProfile = async () => {
-  const { data } = await instance.get("/mini-project/api/auth/me/");
-  return data;
-};
-
-const transaction = async () => {
-  const { data } = await instance.get("/mini-project/api/transactions/my");
-  return data;
+const allTransactions = async () => {
+  const res = await instance.get("/mini-project/api/transactions/my");
+  return res.data;
 };
 
 const put_deposit = async (amount) => {
@@ -54,5 +47,17 @@ const put_deposit = async (amount) => {
 
   return data;
 };
-export { register, login, getUserProfile, put_deposit, transaction,allTransactions };
 
+const getAllUsers = async () => {
+  const { data } = await instance.get("/mini-project/api/auth/users");
+  return data;
+};
+
+export {
+  register,
+  login,
+  getUserProfile,
+  put_deposit,
+  allTransactions,
+  getAllUsers,
+};

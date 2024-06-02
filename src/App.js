@@ -9,6 +9,7 @@ import UserContext from "./context/UserContext";
 import Profile from "./pages/ProfilePage";
 import DepositForm from "./pages/Deposit";
 import Transactions from "./pages/Transactions";
+import Users from "./pages/Users";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -24,6 +25,7 @@ function App() {
 
           <Route path="/profile" Component={Profile}></Route>
           <Route path="/deposit" Component={DepositForm}></Route>
+          <Route path="/users" Component={Users} />
         </Routes>
       </div>
     </UserContext.Provider>
