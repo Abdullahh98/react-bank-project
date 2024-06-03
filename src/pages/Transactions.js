@@ -34,9 +34,9 @@ const Transactions = () => {
   });
 
   return (
-    <div className="  h-[655px] flex flex-col">
+    <div className="h-[655px] flex flex-col">
       <div className="bg-blue-500 h-[120px]"></div>
-      <div className="bg-green-500 h-[130px] w-full">
+      <div className="bg-green-500 h-[130px]">
         <div className=" text-center py-3">
           <h1>Filter</h1>
         </div>
@@ -49,7 +49,7 @@ const Transactions = () => {
       </div>
       <div className="bg-purple-500 h-[130px]"></div>
       <div className=" h-full flex justify-center items-center">
-        <div className=" lg:h-[95%] lg:w-full rounded-md flex flex-col justify-center items-center overflow-scroll gap-3 p-3 ">
+        <div className=" lg:h-[95%] lg:w-full rounded-md flex flex-col justify-center items-center overflow-scroll gap-3 p-3">
           {/* here is where we display the transaction cards */}
           {transactionList}
         </div>

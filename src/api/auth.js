@@ -53,6 +53,13 @@ const getAllUsers = async () => {
   return data;
 };
 
+const transfer = async () => {
+  const { data } = await instance.put(
+    "/mini-project/api/transactions/transfer/<username>"
+  );
+  return data;
+};
+
 export {
   register,
   login,
@@ -60,4 +67,5 @@ export {
   put_deposit,
   allTransactions,
   getAllUsers,
+  transfer,
 };
