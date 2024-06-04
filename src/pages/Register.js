@@ -34,7 +34,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
+    <div className="min-h-screen flex items-center  justify-center absolute inset-0 z-[-1]">
       <div className="max-w-md w-full px-6 py-8 bg-white  rounded-md">
         <h2 className="text-3xl text-black font-semibold mb-6">
           Register your account
