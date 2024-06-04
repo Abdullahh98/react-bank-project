@@ -29,7 +29,6 @@ const register = async (userInfo) => {
   }
 };
 
-
 const allTransactions = async () => {
   const res = await instance.get("/mini-project/api/transactions/my");
 
@@ -51,8 +50,39 @@ const put_deposit = async (amount) => {
     "/mini-project/api/transactions/deposit",
     { amount: amount }
   );
-
   return data;
 };
-export { register, login, getUserProfile, put_deposit, transaction,allTransactions };
 
+const withdraw = async (amount) => {
+  const { data } = await instance.put(
+    "/mini-project/api/transactions/withdraw",
+    { amount: amount }
+  );
+  return data;
+};
+
+const transfer = async () => {
+  const { data } = await instance.put(
+    "/mini-project/api/transactions/transfer/<username>"
+  );
+  return data;
+};
+
+const updateProfile = async (image) => {
+  const { data } = await instance.put("/mini-project/api/auth/profile", {
+    image: image,
+  });
+  return data;
+};
+
+export {
+  register,
+  login,
+  getUserProfile,
+  put_deposit,
+  transaction,
+  allTransactions,
+  withdraw,
+  transfer,
+  updateProfile,
+};

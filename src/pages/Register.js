@@ -10,6 +10,7 @@ const Register = () => {
 
   const navigate = useNavigate();
   const queryClient = useQueryClient();
+
   const handleChange = (e) => {
     if (e.target.name === "image") {
       setUserInfo({ ...userInfo, [e.target.name]: e.target.files[0] });
@@ -17,6 +18,7 @@ const Register = () => {
       setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
     }
   };
+
   const registerRequest = useMutation({
     mutationKey: ["register"],
     mutationFn: () => register(userInfo),
@@ -25,35 +27,35 @@ const Register = () => {
       navigate("/");
     },
   });
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    // Add register logic here
     registerRequest.mutate();
   };
 
   return (
-    <div className="flex items-center justify-center mx-10 my-10">
-      <div>
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="max-w-md w-full px-6 py-8 bg-white  rounded-md">
         <h2 className="text-3xl text-black font-semibold mb-6">
           Register your account
         </h2>
-        <h3 className=" my-4">
+        <p className="text-gray-600 mb-4">
           If you do have an account,{" "}
-          <NavLink to="/login" className=" text-sky-400">
+          <NavLink to="/login" className="text-blue-500">
             login here
           </NavLink>
-        </h3>
+        </p>
         <form onSubmit={handleFormSubmit}>
           <div className="mb-4">
             <label
-              htmlFor="name"
+              htmlFor="username"
               className="block text-black text-sm font-medium mb-2"
             >
               Username
             </label>
             <input
               type="text"
-              id="name"
+              id="username"
               name="username"
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -84,7 +86,6 @@ const Register = () => {
             >
               Upload a Profile Picture
             </label>
-
             <input
               type="file"
               id="image"
@@ -102,7 +103,6 @@ const Register = () => {
           </div>
           <div className="flex justify-center">
             <button
-              onSubmit={handleFormSubmit}
               type="submit"
               className="w-full px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
             >

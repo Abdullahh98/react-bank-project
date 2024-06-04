@@ -1,35 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { put_deposit } from "../api/auth";
+import { withdraw } from "../api/auth";
 import { useQueryClient } from "@tanstack/react-query";
 
-const DepositForm = () => {
+const Withdraw = () => {
   const queryClient = useQueryClient();
   const [amount, setAmount] = useState("");
-  const depositMutation = useMutation({
-    mutationKey: ["deposit"],
-    mutationFn: () => put_deposit(amount),
+  const withdrawMutation = useMutation({
+    mutationKey: ["withdraw"],
+    mutationFn: () => withdraw(amount),
     onSuccess: () => {
-      alert("Deposit successful");
+      alert("Withdraw successful");
       queryClient.invalidateQueries(["profile"]);
       setAmount(""); // Reset the amount to the input tag
     },
     onError: () => {
-      alert("Deposit error");
+      alert("You cannot withdraw more than what you have. Check your balance.");
     },
   });
 
   const handleChange = (event) => {
     setAmount(event.target.value);
   };
+
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent form submission by default
-    if (amount <= "0") {
-      alert("You cannot deposit 0 amount and negative");
+    event.preventDefault();
+    if (amount <= 0) {
+      alert("You cannot withdraw 0 amount and negative");
       return; // Exit the function if amount is 0
     }
-    // Proceed with deposit if amount is not 0
-    depositMutation.mutate();
+    withdrawMutation.mutate();
   };
 
   return (
@@ -42,10 +43,10 @@ const DepositForm = () => {
                 htmlFor="amount"
                 className="block text-gray-700 font-bold mb-2"
               >
-                Deposit Amount:
+                Withdraw Amount:
               </label>
               <input
-                id="amount"
+                id="withdraw"
                 type="number"
                 value={amount}
                 onChange={handleChange}
@@ -56,9 +57,9 @@ const DepositForm = () => {
             </div>
             <button
               type="submit"
-              className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600"
+              className=" bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600"
             >
-              Deposit
+              Withdraw
             </button>
           </form>
         </div>
@@ -67,4 +68,4 @@ const DepositForm = () => {
   );
 };
 
-export default DepositForm;
+export default Withdraw;

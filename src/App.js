@@ -9,6 +9,8 @@ import UserContext from "./context/UserContext";
 import Profile from "./pages/ProfilePage";
 import DepositForm from "./pages/Deposit";
 import Transactions from "./pages/Transactions";
+import Withdraw from "./pages/Withdraw";
+import Home from "./pages/Home";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -19,11 +21,11 @@ function App() {
         <Routes>
           <Route path="/register" Component={Register} />
           <Route path="/login" Component={Login} />
-
           <Route path="/transactions" Component={Transactions} />
-
           <Route path="/profile" Component={Profile}></Route>
           <Route path="/deposit" Component={DepositForm}></Route>
+          <Route path="/withdraw" Component={Withdraw} />
+          <Route path="/home" Component={Home}></Route>
         </Routes>
       </div>
     </UserContext.Provider>
