@@ -29,20 +29,14 @@ const register = async (userInfo) => {
   }
 };
 
-const allTransactions = async () => {
-  const res = await instance.get("/mini-project/api/transactions/my");
-
+const getUserProfile = async () => {
+  const res = await instance.get("/mini-project/api/auth/me/");
   return res.data;
 };
 
-const getUserProfile = async () => {
-  const { data } = await instance.get("/mini-project/api/auth/me/");
-  return data;
-};
-
-const transaction = async () => {
-  const { data } = await instance.get("/mini-project/api/transactions/my");
-  return data;
+const allTransactions = async () => {
+  const res = await instance.get("/mini-project/api/transactions/my");
+  return res.data;
 };
 
 const put_deposit = async (amount) => {
@@ -56,14 +50,21 @@ const put_deposit = async (amount) => {
 const withdraw = async (amount) => {
   const { data } = await instance.put(
     "/mini-project/api/transactions/withdraw",
-    { amount: amount }
+    { amount }
   );
   return data;
 };
 
-const transfer = async () => {
+const getAllUsers = async () => {
+  const { data } = await instance.get("/mini-project/api/auth/users");
+  return data;
+};
+
+const transfer = async (username, amount) => {
   const { data } = await instance.put(
-    "/mini-project/api/transactions/transfer/<username>"
+    `/mini-project/api/transactions/transfer/${username}`,
+
+    { amount: amount }
   );
   return data;
 };
@@ -80,9 +81,9 @@ export {
   login,
   getUserProfile,
   put_deposit,
-  transaction,
   allTransactions,
   withdraw,
-  transfer,
   updateProfile,
+  getAllUsers,
+  transfer,
 };
