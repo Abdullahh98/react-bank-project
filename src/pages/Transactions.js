@@ -42,9 +42,9 @@ const Transactions = () => {
     }
     if (
       searchQuery &&
-      !transaction.amount.toString().includes(searchQuery) &&
-      !transaction.type.includes(searchQuery) &&
-      !transaction.createdAt.includes(searchQuery)
+      !transaction.amount?.toString().includes(searchQuery) &&
+      !transaction.type?.includes(searchQuery) &&
+      !transaction.createdAt?.includes(searchQuery)
     ) {
       return false;
     }
