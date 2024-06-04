@@ -1,7 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
 import { getAllUsers } from "../api/auth";
 import UserItem from "../components/UserItem";
+import { transfer } from "../api/auth";
 
 const Users = () => {
   const { data: users } = useQuery({
@@ -22,8 +23,10 @@ const Users = () => {
   });
 
   return (
-    <div>
-      <div>{usersList}</div>
+    <div className="flex">
+      <div className=" flex justify-center gap-20 p-2 flex-wrap w-full h-full ">
+        {usersList}
+      </div>
     </div>
   );
 };

@@ -53,9 +53,11 @@ const getAllUsers = async () => {
   return data;
 };
 
-const transfer = async () => {
+const transfer = async (username, amount) => {
   const { data } = await instance.put(
-    "/mini-project/api/transactions/transfer/<username>"
+    `/mini-project/api/transactions/transfer/${username}`,
+
+    { amount: amount }
   );
   return data;
 };
